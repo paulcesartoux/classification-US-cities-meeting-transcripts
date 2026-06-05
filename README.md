@@ -30,8 +30,8 @@ Enregistrement → Transcription → Extraction → Création de tâches → Per
 ## 📦 Dataset
 
 ### Source
-Aucun dataset adapté n'existant, nous l'avons **créé from scratch** à partir du dataset de transcriptions de réunions municipales :
-- 🔗 [MeetingBank Transcript — HuggingFace](https://huggingface.co/datasets/lytang/MeetingBank-transcript)
+Aucun dataset adapté n'existant, nous l'avons **annoté from scratch** à partir du dataset de transcriptions de réunions municipales :
+- 🔗 [MeetingBank Transcript — HuggingFace](https://meetingbank.github.io/)
 - Transcriptions volumineuses : **~2775 mots en moyenne** (écart-type : ~5610)
 
 ### Génération avec ChatGPT
@@ -173,7 +173,7 @@ Recherche aléatoire via `RandomizedSearchCV` (scoring : `f1_weighted`, `cv=3`).
 
 ## 👥 Auteurs
 
-| Nom | Rôle |
+| Nom | |
 |---|---|
 | Tambone Quentin | |
 | Toux Paul-Cesar | |
