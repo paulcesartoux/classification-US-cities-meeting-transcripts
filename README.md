@@ -115,7 +115,7 @@ Recherche aléatoire via `RandomizedSearchCV` (scoring : `f1_weighted`, `cv=3`).
 
 ## ⚠️ Limitations
 
-- Dataset entièrement généré par un LLM (ChatGPT) → qualité difficile à vérifier
+- Dataset partiellement généré par un LLM (ChatGPT) → qualité difficile à vérifier
 - Volume de données limité
 - Déséquilibre initial important entre les classes
 - Domaine très spécifique (réunions municipales américaines)
