@@ -1,23 +1,23 @@
-# 🤖 Meeting Task Categorizer — ML Project
+# Meeting Task Categorizer — ML Project
 
 > **Université Paris 1 Panthéon-Sorbonne · MIAGE**  
 > Tambone Quentin · Toux Paul-Cesar · Baumgartner Etienne · Marques Hugo
 
 ---
 
-## 📋 Description
+## Description
 
 Ce projet de Machine Learning s'inscrit dans un système plus large de gestion automatique de réunions. L'objectif est de **catégoriser automatiquement des tâches** extraites de transcriptions de réunions en trois catégories métier :
 
 | Catégorie | Description |
 |---|---|
-| 📝 `Document_Writing` | Rédaction de rapports, ordonnances, résolutions, etc. |
-| 📅 `Meeting_Planning` | Planification et organisation de réunions |
-| 📨 `Administrative_Communication` | Emails officiels, communiqués, mémos |
+| `Document_Writing` | Rédaction de rapports, ordonnances, résolutions, etc. |
+| `Meeting_Planning` | Planification et organisation de réunions |
+| `Administrative_Communication` | Emails officiels, communiqués, mémos |
 
 ---
 
-## 🏗️ Pipeline global
+## Pipeline global
 
 ```
 Enregistrement → Transcription → Extraction → Création de tâches → Personnalisation → Exécution
@@ -27,11 +27,11 @@ Enregistrement → Transcription → Extraction → Création de tâches → Per
 
 ---
 
-## 📦 Dataset
+## Dataset
 
 ### Source
 Aucun dataset adapté n'existant, nous l'avons **annoté from scratch** à partir du dataset de transcriptions de réunions municipales :
-- 🔗 [MeetingBank Transcript — HuggingFace](https://meetingbank.github.io/)
+- [MeetingBank Transcript — HuggingFace](https://meetingbank.github.io/)
 - Transcriptions volumineuses : **~2775 mots en moyenne** (écart-type : ~5610)
 
 ### Génération avec ChatGPT
@@ -47,7 +47,7 @@ Le script a tourné **toute une nuit** pour un coût d'environ **5$**.
 
 ---
 
-## 🔧 Préparation des données
+## Préparation des données
 
 ### Nettoyage
 - Suppression des stopwords (NLTK)
@@ -65,7 +65,7 @@ Le script a tourné **toute une nuit** pour un coût d'environ **5$**.
 
 ---
 
-## 🤖 Modèles
+## Modèles
 
 ### Modèles principaux
 - **KNN** — K-Nearest Neighbors
@@ -82,13 +82,13 @@ Recherche aléatoire via `RandomizedSearchCV` (scoring : `f1_weighted`, `cv=3`).
 
 ---
 
-## 📊 Résultats
+## Résultats
 
 ### Meilleurs modèles individuels (sur `df_full_VAE`)
 
 | Modèle | F1 Score (test) |
 |---|---|
-| **MLP Classifier** | **0.855** ✅ |
+| **MLP Classifier** | **0.855** |
 | Linear SVC | 0.850 |
 | Logistic Regression | 0.848 |
 | Random Forest | 0.804 |
@@ -113,7 +113,7 @@ Recherche aléatoire via `RandomizedSearchCV` (scoring : `f1_weighted`, `cv=3`).
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 - Dataset partiellement généré par un LLM (ChatGPT) → qualité difficile à vérifier
 - Volume de données limité
@@ -122,31 +122,24 @@ Recherche aléatoire via `RandomizedSearchCV` (scoring : `f1_weighted`, `cv=3`).
 
 ---
 
-## 🛠️ Stack technique
-
-![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange?logo=scikit-learn)
-![pandas](https://img.shields.io/badge/pandas-data-green?logo=pandas)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-VAE-FF6F00?logo=tensorflow)
-![HuggingFace](https://img.shields.io/badge/HuggingFace-Transformers-yellow?logo=huggingface)
-![LangChain](https://img.shields.io/badge/LangChain-OpenAI-purple)
+## Stack technique
 
 - `scikit-learn` — modèles ML (KNN, RF, SVC, MLP, LogReg, Perceptron), SMOTE, RandomizedSearchCV
 - `pandas` / `numpy` — manipulation des données
 - `sentence-transformers` — embeddings SBERT (`all-MiniLM-L6-v2`), MPNet, BGE
 - `transformers` + `torch` — embeddings BERT
 - `tensorflow` / `keras` — VAE custom pour sur-échantillonnage dans l'espace des embeddings
-- `langchain-openai` + `gpt-4o-mini` — génération du dataset labelisé
+- `langchain-openai` + `gpt-4o-mini` — génération du dataset labellisé
 
 ---
 
-## 📁 Structure du projet
+## Structure du projet
 
 ```
 .
 ├── Projet/
 │   └── dataset/
-│       ├── training_data.csv         # Données d'entraînement(source)
+│       ├── training_data.csv         # Données d'entraînement (source)
 │       └── test_data.csv             # Données de test (source)
 ├── dataset_full_VAE.csv              # Sur-échantillonnage VAE (toutes classes à égalité)
 ├── dataset_downsample_VAE.csv        # Sous/Sur-échantillonnage VAE
@@ -171,14 +164,14 @@ Recherche aléatoire via `RandomizedSearchCV` (scoring : `f1_weighted`, `cv=3`).
 
 ---
 
-## 👥 Auteurs
+## Auteurs
 
-| Nom | |
-|---|---|
-| Tambone Quentin | |
-| Toux Paul-Cesar | |
-| Baumgartner Etienne | |
-| Marques Hugo | |
+| Nom |
+|---|
+| Tambone Quentin |
+| Toux Paul-Cesar |
+| Baumgartner Etienne |
+| Marques Hugo |
 
 ---
 
